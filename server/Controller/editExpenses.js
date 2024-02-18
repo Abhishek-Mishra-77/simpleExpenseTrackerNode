@@ -8,7 +8,7 @@ router.put('/edit/:id', async (req, res) => {
     try {
         const expense = await User.update(
             { product: updatedExpense.product, amount: updatedExpense.amount, description: updatedExpense.description, category: updatedExpense.category },
-            { where: { _id: id } }
+            { where: { id: id } }
         );
         if (!expense) {
             return res.status(404).json({ error: 'Expense Not Found' });
